@@ -5,6 +5,7 @@ class UserRoutes extends BaseRouter {
   public routes(): void {
     this.router.get('/', userController.index);
     this.router.post('/', userController.create);
+    this.router.patch('/', userController.update);
   }
 }
 

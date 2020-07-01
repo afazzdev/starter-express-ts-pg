@@ -8,7 +8,7 @@ export async function up(knex: Knex): Promise<any> {
       .primary()
       .defaultTo(knex.raw('uuid_generate_v4()'));
     table.string('name');
-    table.timestamps();
+    table.timestamps(true, true);
   });
 }
 
