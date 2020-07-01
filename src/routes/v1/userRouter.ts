@@ -1,8 +1,11 @@
-import { Router } from 'express';
-import userController from '../../controllers/v1/userController';
+import userController from '../../controllers/v1/UserController';
+import BaseRouter from './BaseRouter';
 
-const userRoutes = Router();
+class UserRoutes extends BaseRouter {
+  public routes(): void {
+    this.router.get('/', userController.index);
+    this.router.post('/', userController.create);
+  }
+}
 
-userRoutes.get('/check', userController.check);
-
-export default userRoutes;
+export default new UserRoutes().router;

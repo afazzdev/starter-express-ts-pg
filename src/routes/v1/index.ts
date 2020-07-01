@@ -1,8 +1,17 @@
-import express from 'express';
-import userRoutes from './userRouter';
+import express, { Application } from 'express';
+import BaseRouter from './BaseRouter';
+import UserRouter from './UserRouter';
 
-const app = express();
+class AppV1 {
+  app: Application;
+  constructor() {
+    this.app = express();
+    this.routes();
+  }
 
-app.use('/users', userRoutes);
+  public routes() {
+    this.app.use('/users', UserRouter);
+  }
+}
 
-export default app;
+export default new AppV1().app;
