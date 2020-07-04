@@ -10,4 +10,6 @@ knex
   .then(() => console.log(`EXTENSION CREATED`))
   .catch(() => console.log('FAILED TO CREATE EXTENSION'));
 
+export const UserModel = knex('users');
+
 export default knex;
